@@ -1,0 +1,4 @@
+Hello ,Linux Mint 19.1 is a long term support release which will be supported until 2023. It comes with updated software and brings refinements and many new features to make your desktop even more comfortable to use.
+New features:
+This new version of Linux Mint contains many improvements.
+For an overview of the new features please visit: http://www.baidu.com

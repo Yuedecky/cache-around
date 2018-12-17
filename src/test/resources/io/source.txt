@@ -1,0 +1,3 @@
+Important info:
+The release notes provide important information about known issues, as well as explanations, workarounds and solutions.
+To read the release notes, please visit:
