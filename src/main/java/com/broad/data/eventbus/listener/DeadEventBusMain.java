@@ -6,7 +6,7 @@ public class DeadEventBusMain {
 
 
     public static void main(String[] args) {
-        final EventBus eventBus = new EventBus("dead EventBus"){
+        final EventBus eventBus = new EventBus("dead MyEventBus"){
             @Override
             public String toString() {
                 return "DEAD-EVENTBUS";

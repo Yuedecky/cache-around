@@ -6,6 +6,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 public class FireChangeListener {
 
@@ -21,6 +23,14 @@ public class FireChangeListener {
         final EventBus eventBus = new EventBus();
         eventBus.register(new FireChangeListener());
         TargetMonitor monitor = new DirectoryMonitor(eventBus, "/home/broad/excel/uat", "");
+
+        Executors.newSingleThreadScheduledExecutor().schedule(()->{
+            try{
+                monitor.stopMonitor();
+            }catch (Exception e){
+
+            }
+        },2, TimeUnit.MINUTES);
         monitor.startMonitor();
     }
 

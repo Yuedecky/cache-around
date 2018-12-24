@@ -19,4 +19,12 @@ public class FireChangeEvent {
         this.path = path;
         this.kind = kind;
     }
+
+    public WatchEvent.Kind getKind() {
+        return kind;
+    }
+
+    public Path getPath() {
+        return path;
+    }
 }
