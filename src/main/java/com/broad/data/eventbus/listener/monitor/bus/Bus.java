@@ -14,4 +14,7 @@ public interface Bus {
     void unRegister(Object subscriber);
 
 
+    String getBusName();
+
+
 }

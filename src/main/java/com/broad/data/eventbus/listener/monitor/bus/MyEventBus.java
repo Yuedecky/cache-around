@@ -1,10 +1,8 @@
 package com.broad.data.eventbus.listener.monitor.bus;
 
-import lombok.NoArgsConstructor;
 
 import java.util.concurrent.Executor;
 
-@NoArgsConstructor
 public class MyEventBus implements Bus {
 
 
@@ -21,7 +19,7 @@ public class MyEventBus implements Bus {
 
 
     public MyEventBus() {
-        this(DEFAULT_EVENT_NAME, null);
+        this(DEFAULT_EVENT_NAME, MyEventBusDispatcher.SEQ_EXECUTOR_SERVICE);
     }
 
     public MyEventBus(String busName) {
@@ -47,8 +45,7 @@ public class MyEventBus implements Bus {
 
     @Override
     public void post(Object event) {
-
-
+        this.post(event,DEFAULT_TOPIC);
     }
 
     @Override
@@ -58,7 +55,11 @@ public class MyEventBus implements Bus {
 
     @Override
     public void unRegister(Object subscriber) {
-
         this.registry.unbind(subscriber);
+    }
+
+    @Override
+    public String getBusName() {
+        return busName;
     }
 }

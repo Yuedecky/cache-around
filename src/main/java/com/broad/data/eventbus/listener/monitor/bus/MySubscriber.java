@@ -1,30 +1,31 @@
 package com.broad.data.eventbus.listener.monitor.bus;
 
 import lombok.Getter;
+import lombok.Setter;
 
 import java.lang.reflect.Method;
 
 @Getter
+@Setter
 public class MySubscriber {
 
-    private final Object subscriberObject ;
+    private final Object subscribeObject ;
 
-    private final Method subscriberMethod;
+    private final Method subscribeMethod;
 
     private boolean disabled = false;
 
-    public MySubscriber(Object subscriberObject, Method subscriberMethod) {
-        this.subscriberObject = subscriberObject;
-        this.subscriberMethod = subscriberMethod;
+    public MySubscriber(Object subscribeObject, Method subscribeMethod) {
+        this.subscribeObject = subscribeObject;
+        this.subscribeMethod = subscribeMethod;
     }
 
-
-    public Object getSubscriberObject() {
-        return subscriberObject;
+    public Method getSubscribeMethod() {
+        return subscribeMethod;
     }
 
-    public Method getSubscriberMethod() {
-        return subscriberMethod;
+    public Object getSubscribeObject() {
+        return subscribeObject;
     }
 
     public boolean isDisabled() {

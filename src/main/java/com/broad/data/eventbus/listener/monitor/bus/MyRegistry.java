@@ -24,11 +24,16 @@ public class MyRegistry implements Registry {
     }
 
 
+    @Override
+    public ConcurrentLinkedQueue<MySubscriber> scanSubscriber(final String topic) {
+        return subscriberContainer.get(topic);
+    }
+
     private void tierSubscriber(Object subscriber, Method method) {
         final MySubscribe mySubscriber = method.getDeclaredAnnotation(MySubscribe.class);
         String topic = mySubscriber.topic();
         subscriberContainer.computeIfAbsent(topic, key -> new ConcurrentLinkedQueue<>());
-        subscriberContainer.get(topic).add(new MySubscriber(subscriber,method));
+        subscriberContainer.get(topic).add(new MySubscriber(subscriber, method));
     }
 
     /**
@@ -51,9 +56,9 @@ public class MyRegistry implements Registry {
     @Override
     public void unbind(Object subscriber) {
 
-        subscriberContainer.forEach((key,queue)->{
-            queue.forEach(s->{
-                        if(s.getSubscriberObject() == subscriber){
+        subscriberContainer.forEach((key, queue) -> {
+            queue.forEach(s -> {
+                        if (s.getSubscribeObject() == subscriber) {
                             s.setDisabled(true);
                         }
                     }

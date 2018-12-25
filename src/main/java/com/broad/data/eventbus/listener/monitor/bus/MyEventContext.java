@@ -1,4 +1,14 @@
 package com.broad.data.eventbus.listener.monitor.bus;
 
-public class MyEventContext {
+import java.lang.reflect.Method;
+
+public interface MyEventContext {
+
+    String getSource();
+
+    Object getSubscriber();
+
+    Method getSubscriberMethod();
+
+    Object getEvent();
 }
